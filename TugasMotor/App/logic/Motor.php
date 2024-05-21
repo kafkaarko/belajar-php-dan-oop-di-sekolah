@@ -6,7 +6,7 @@ class Pelanggan {
     protected $motor;
     protected $harga;
     protected $diskon = 5;
-    protected $ppn = 10;
+    protected $ppn = 10000;
     protected $hari;
 
     public function __construct($pelanggan, $hari, $motor, $harga) {
