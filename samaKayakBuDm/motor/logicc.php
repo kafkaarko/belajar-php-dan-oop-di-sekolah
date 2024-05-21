@@ -48,7 +48,7 @@ class Rent extends Data {
 
     public function pembayaran(){
         echo "<center>";
-        echo $this->member . "berstatus sebgai " . $this->getMember() . " mendapatkan diskon sebesar " . $this->hargaRental()[1] . "%";
+        echo $this->member . " berstatus sebgai " . $this->getMember() . " mendapatkan diskon sebesar " . $this->hargaRental()[1] . "%";
         echo "<br>";
         echo "Jenis motor yang dirental adalah " . $this->jenis . " selama " . $this->waktu . " hari";
         echo "<br>";

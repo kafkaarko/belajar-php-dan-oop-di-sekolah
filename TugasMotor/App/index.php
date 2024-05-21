@@ -42,7 +42,7 @@ label {
     color: #666;
 }
 
-input[type="text"],
+input[type="text"],input[type='number'],
 select {
     width: 100%;
     padding: 8px;
@@ -133,7 +133,7 @@ button:hover {
                 </div>
                 <div class="waktu">
                     <label for="">Lama Waktu Rental(perhari)</label>
-                    <input type="text" name="waktu" id="wkt">
+                    <input type="number" name="waktu" id="wkt">
                 </div>
                 <div class="motor">
                     <label for="">Jenis Motor:</label>
