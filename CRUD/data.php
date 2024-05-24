@@ -187,9 +187,22 @@ if(isset($_POST['hapus'])){
                 "nis" => $_POST['nis'],
                 "rayon" => $_POST['rayon']
             );
+           $sama = false;
+           foreach($_SESSION['dataSiswa'] as $ds){
+            if($ds['nama'] == $siswa['nama'] && $ds['nis'] == $siswa['nis'] && $ds['rayon'] == $siswa['rayon']){
+                $sama = true;
+                break;
+            }
+           }
+           if ($sama) {
+            echo "Data ini sudah ada, tulis data lain";
+        } else {
             array_push($_SESSION['dataSiswa'], $siswa);
-        }
+            echo "Data berhasil ditambahkan";
+             }
+         }
     }
+  
 
     
     ?>
