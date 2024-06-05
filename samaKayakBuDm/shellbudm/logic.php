@@ -17,7 +17,7 @@ class DataBahanBakar{
         //mengisi nilai ke attribute,nilai nantinya di isi dari luar class melalui function
         //nilai dari  luar di ambil kedalam class melalu parameter (variable yang ada dilam)
         //penamaan parameter bebas asal urutann pengisian dr luarnya sesuai
-        $this->HargaSSuper = $valSPower;
+        $this->HargaSSuper = $valSSuper;
         $this->HargaSVPower = $valSPower;
         $this->HargaSPowerDiesel = $valSPowerDiesel;
         $this->HargaSPowerNitro = $valSPowerNitro;

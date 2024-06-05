@@ -175,7 +175,7 @@ if(isset($_POST['hapus'])){
     <div class="siswa-list">
     <?php
     if(!isset($_SESSION['dataSiswa'])){
-        $_SESSION['dataSiswa'] = array();
+        $_SESSION['dataSiswa'] = [];
     }
 
     if(isset($_POST['tmb'])){
@@ -198,7 +198,6 @@ if(isset($_POST['hapus'])){
             echo "Data ini sudah ada, tulis data lain";
         } else {
             array_push($_SESSION['dataSiswa'], $siswa);
-            echo "Data berhasil ditambahkan";
              }
          }
     }

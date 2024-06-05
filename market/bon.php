@@ -1,81 +1,93 @@
 <?php
-    session_start();
-    $total_belanja = 0;
-    foreach($_SESSION['pembelajaan'] as $belan => $b){
-        $total_belanja += $b['harga'] * $b['jumlah'];
-        $bayar = $_SESSION['bayar'] - $total_belanja;
-    }
+session_start();
+$total_belanja = 0;
+foreach ($_SESSION['pembelajaan'] as $belan => $b) {
+    $total_belanja += $b['harga'] * $b['jumlah'];
+    $bayar = $_SESSION['bayar'] - $total_belanja;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bon</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
-        .mid{
+
+        .mid {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
-            
+
         }
-        .midd{
+
+        .midd {
             display: flex;
             justify-content: center;
         }
-       
-        h1{
+
+        h1 {
             font-weight: 300;
         }
-        .judul{
+
+        .judul {
             display: flex;
             justify-content: center;
             margin-bottom: 40px;
         }
-        .random{
+
+        .random {
             margin-bottom: 40px;
         }
-        .rand{
+
+        .rand {
             margin-bottom: 10px;
         }
+
         .nama {
-            display: flex;
+
             justify-content: space-between;
         }
-        .total{
+
+        .total {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
         }
-        .oh{
+
+        .oh {
             margin-left: 200px;
         }
-        .ref{
+
+        .ref {
             display: flex;
             justify-content: space-between;
         }
-        a:link, a:visited {
-            background-color: aqua;
-        color: #525CEB;
-        width: 230px;
-        height: 30px;
-        border-radius: 5px;
-        /* padding: 14px 25px; */
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        }
 
+        a:link,
+        a:visited {
+            background-color: aqua;
+            color: #525CEB;
+            width: 230px;
+            height: 30px;
+            border-radius: 5px;
+            /* padding: 14px 25px; */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
     </style>
 </head>
+
 <body>
     <div class="midd">
         <div class="mid">
@@ -86,52 +98,54 @@
                 <div class="random">
                     <div class="rand">
 
-                        <h4>No.Transaksi#<?= rand() ?></h4> 
+                        <h4>No.Transaksi#<?= rand() ?></h4>
                     </div>
                     <div class="alon">
                         <h4>Bulan, Tanggal# <?= date("l jS \of F Y A") ?></h4>
                     </div>
                 </div>
                 <hr>
-                <?php 
-                    foreach($_SESSION['pembelajaan'] as $belan => $b) :
-                        ?>
-                <div class="nama">
-                    <p><?= $b['barang'] ?></p>
-                    <div class="harga">
-                        <p><?= $b['harga'] ?></p>
-                        <div class="jumlah">
-                            <p><b> x<?= $b['jumlah'] ?></b</p>
+                <?php
+                foreach ($_SESSION['pembelajaan'] as $belan => $b) :
+                ?>
+                    <div class="nama">
+                        <p><?= $b['barang'] ?></p>
+                        <div class="harga">
+                            <p><?= $b['harga'] ?></p>
+                            <div class="jumlah">
+                                <p><b> x<?= $b['jumlah'] ?></b< /p>
+                            </div>
+                        <?php endforeach; ?>
                         </div>
-                        <?php endforeach;?>
                     </div>
-                </div>
-                <hr>
-                <div class="total">
-                    <p>uang yang di bayarkan adalah </p>
+                    <hr>
+                    <div class="total">
+                        <p>uang yang di bayarkan adalah </p>
                         <div class="uang">
-                        <p>Rp. <?= $_SESSION['bayar'] ?></p>
+                            <p>Rp. <?= number_format($_SESSION['bayar'], 0, ',', '.') ?></p>
                         </div>
-                </div>
-                <div class="total">
-                    <p>total yang harga   </p>
+                    </div>
+                    <div class="total">
+                        <p>total yang harga </p>
                         <div class="uang">
-                        <p>Rp. <?= number_format($total_belanja, 0, ',', '.') ?></p>
+                            <p>Rp. <?= number_format($total_belanja, 0, ',', '.') ?></p>
                         </div>
-                </div>
-                <div class="total">
-                    <p>kembalian nya adalah </p>
+                    </div>
+                    <div class="total">
+                        <p>kembalian nya adalah </p>
                         <div class="uang">
-                            <p>Rp. <?= $bayar?></p>
+                            <p>Rp. <?= $bayar ?></p>
                         </div>
-                </div>
-                <div class="ref">
+                    </div>
+                    <div class="ref">
                         <p>Terrimakasih telah belanjan di toko <b>Makmur sejahtera</b></p>
-                            <a href="index.php" <?php session_destroy() ?>>kembali</a>
-                        
-                </div>
+                        <a href="index.php" <?php session_destroy() ?>>kembali</a>
+                        <button onclick="window.print()">print</button>
+
+                    </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
