@@ -21,12 +21,7 @@ if (isset($_POST['tmb'])) {
             "nis" => $_POST['nis'],
             "rayon" => $_POST['rayon']
         );
-        echo "
-        <script>
-            alert('Data berhasil diubah');
-            document.location.href = 'data.php';
-        </script>
-        ";
+        header("Location: data.php");
     } else {
         echo "
         <script>

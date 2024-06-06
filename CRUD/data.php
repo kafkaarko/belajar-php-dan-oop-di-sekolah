@@ -206,7 +206,7 @@ if(isset($_POST['hapus'])){
     
     ?>
         <?php if (!empty($_SESSION['dataSiswa'])): ?>
-            <?php foreach ($_SESSION['dataSiswa'] as $key => $value): ?>
+            <?php foreach ($_SESSION['dataSiswa'] as $key  => $value): //key = 1?> 
                 <div>
                     <p><?php echo htmlspecialchars($value['nama']); ?> - <?php echo htmlspecialchars($value['nis']); ?> - <?php echo htmlspecialchars($value['rayon']); ?></p>
                     <form method="post" style="display:inline;">
